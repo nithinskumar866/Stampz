@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Stamp Collection</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo"><img src="images/india-post.png" alt="India Post Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="auction.html">Auction</a></li>
+                <li><a href="track.html">Track Your Order</a></li>
+                <li><a href="scanner.html">AI Estimater</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Stamp Collection Section -->
+    <section class="content">
+        <h2>Stamp Collection</h2>
+        <div class="stamps-container">
+            <div class="stamp-item">
+                <img src="images/360_F_221626496_fc0QZiKl3AD5AryLVgHkADHr4vmAff0B .png" alt="Stamp 1">
+                <h3>Stamp 1</h3>
+                <p>Price: ₹50</p>
+                <button onclick="toggleDescription('desc1')">View Description</button>
+                <div class="description" id="desc1" style="display:none;">
+                    <p>This is the story of Stamp 1. It was issued in 2020 to commemorate India's rich heritage.</p>
+                    <button onclick="speak('This is the story of Stamp 1. It was issued in 2020 to commemorate India\'s rich heritage.')">🔊 Speak Description</button>
+                </div>
+                <button onclick="window.location.href='payment.html'">Purchase</button> <!-- Purchase Button -->
+            </div>
+
+            <div class="stamp-item">
+                <img src="images/blue-elephant.png" alt="Stamp 2">
+                <h3>Stamp 2</h3>
+                <p>Price: ₹100</p>
+                <button onclick="toggleDescription('desc2')">View Description</button>
+                <div class="description" id="desc2" style="display:none;">
+                    <p>This is the story of Stamp 2. It honors a significant national event that took place in 2015.</p>
+                    <button onclick="speak('This is the story of Stamp 2. It honors a significant national event that took place in 2015.')">🔊 Speak Description</button>
+                </div>
+                <button onclick="window.location.href='payment.html'">Purchase</button>
+            </div>
+
+            <div class="stamp-item">
+                <img src="images/vintage-indian-postage-stamp.png" alt="Stamp 3">
+                <h3>Stamp 3</h3>
+                <p>Price: ₹75</p>
+                <button onclick="toggleDescription('desc3')">View Description</button>
+                <div class="description" id="desc3" style="display:none;">
+                    <p>This is the story of Stamp 3. It was released to celebrate a historic cultural achievement.</p>
+                    <button onclick="speak('This is the story of Stamp 3. It was released to celebrate a historic cultural achievement.')">🔊 Speak Description</button>
+                </div>
+                <button onclick="window.location.href='payment.html'">Purchase</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-max">
+        <p>&copy; 2024 India Post | All Rights Reserved</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-twitter-square"></i></a>
+            <a href="#"><i class="fab fa-instagram-square"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDescription(id) {
+            var desc = document.getElementById(id);
+            if (desc.style.display === "block") {
+                desc.style.display = "none";
+            } else {
+                desc.style.display = "block";
+            }
+        }
+
+        function speak(text) {
+            var speech = new SpeechSynthesisUtterance();
+            speech.text = text;
+            speech.lang = 'en-IN'; // Set language to Indian English
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>

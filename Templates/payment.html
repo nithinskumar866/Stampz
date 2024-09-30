@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Stamp Collection</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo"><img src="images/india-post.png" alt="India Post Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="auction.html">Auction</a></li>
+                <li><a href="track.html">Track Your Order</a></li>
+                <li><a href="scanner.html">AI Estimater</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Payment Content -->
+    <section class="payment-content">
+        <h2>Payment for Your Purchase</h2>
+        <p>Total Amount: ₹100</p>
+        
+        <button class="button" id="razorpayButton" onclick="payWithRazorpay()">Pay with Razorpay</button>
+        <button class="button" id="walletButton" onclick="initiateWalletPayment()">
+            <i class="fas fa-wallet" style="vertical-align:middle;"></i>
+            Pay with Wallet
+        </button>
+    </section>
+
+    <footer class="footer-min">
+        <p>&copy; 2024 India Post | All Rights Reserved</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-twitter-square"></i></a>
+            <a href="#"><i class="fab fa-instagram-square"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function payWithRazorpay() {
+            var options = {
+                "key": "YOUR_RAZORPAY_KEY", // Enter the Key ID generated from the Dashboard
+                "amount": 10000, // Amount is in currency subunits. Therefore 10000 refers to ₹100
+                "currency": "INR",
+                "name": "India Post",
+                "description": "Purchase of Stamp",
+                "image": "https://via.placeholder.com/150x50", // Company logo
+                "handler": function (response){
+                    alert(response.razorpay_payment_id);
+                    // You can also make an AJAX call to your server here
+                },
+                "prefill": {
+                    "name": "Customer Name",
+                    "email": "customer@example.com",
+                    "contact": "9999999999"
+                },
+                "notes": {
+                    "address": "note value"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            event.preventDefault();
+        }
+
+        function initiateWalletPayment() {
+            alert("Wallet payment feature will be implemented.");
+            // You can add your wallet payment integration here
+        }
+    </script>
+</body>
+</html>
