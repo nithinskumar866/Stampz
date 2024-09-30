@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stamp Order Tracking</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo"><img src="images/india-post.png" alt="India Post Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="auction.html">Auction</a></li>
+                    <li><a href="track.html">Track Your Order</a></li>
+                    <li><a href="scanner.html">AI Estimater</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Tracking Section -->
+        <section class="tracking">
+            <h2>Track Your Stamp Order</h2>
+            <p>Enter your order number to track your stamp order:</p>
+            <div class="tracking-input">
+                <input type="text" id="orderNumber" placeholder="Enter Order Number">
+                <button onclick="trackOrder()">Track Order</button>
+            </div>
+
+            <div id="trackingStatus" style="display: none;">
+                <h3>Tracking Status:</h3>
+                <div class="tracking-progress">
+                    <div class="tracker">
+                        <div class="circle complete"></div>
+                        <p>Order Confirmed</p>
+                    </div>
+                    <div class="tracker">
+                        <div class="circle complete"></div>
+                        <p>Shipped from Warehouse</p>
+                    </div>
+                    <div class="tracker">
+                        <div class="circle in-progress"></div>
+                        <p>In Transit</p>
+                    </div>
+                    <div class="tracker">
+                        <div class="circle"></div>
+                        <p>Out for Delivery</p>
+                    </div>
+                    <div class="tracker">
+                        <div class="circle"></div>
+                        <p>Delivered</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer-min">
+            <p>&copy; 2024 India Post | All Rights Reserved</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+                <a href="#"><i class="fab fa-instagram-square"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function trackOrder() {
+            var orderNumber = document.getElementById('orderNumber').value;
+            if (orderNumber) {
+                // Display tracking status
+                document.getElementById('trackingStatus').style.display = 'block';
+                // You can add logic here to change the status based on order number
+                alert("Tracking information for order number: " + orderNumber);
+            } else {
+                alert("Please enter a valid order number.");
+            }
+        }
+    </script>
+</body>
+
+</html>
