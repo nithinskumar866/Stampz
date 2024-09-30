@@ -55,6 +55,7 @@
     </footer>
 
     <script>
+        let val;
         function previewImage(event) {
             const image = document.getElementById('uploadedImage');
             const file = event.target.files[0];
@@ -66,6 +67,7 @@
                     image.style.display = 'block';
                 };
                 reader.readAsDataURL(file);
+                let val = Math.floor((Math.random()*10)+250);
             }
         }
 
@@ -73,11 +75,11 @@
             const details = document.getElementById('details');
             const price = document.getElementById('priceValue');
             const outputSection = document.getElementById('outputSection');
-
             if (document.getElementById('stampImage').files.length > 0) {
                 outputSection.style.display = 'block';
                 details.style.display = 'inline-block';
                 price.style.display = 'inline-block';
+                price.innerHTML =  `Estimated Value: $${val}`;
             } else {
                 alert('Please upload a stamp image before analyzing.');
             }
